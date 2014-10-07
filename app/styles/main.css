@@ -1,0 +1,117 @@
+/*
+ *  global css
+ */
+body {
+  font-family: 'Microsoft Yahei', STHeiti, sans-serif;
+  font-size: 14px;
+}
+/*
+ * login page css
+ */
+.login-header {
+  height: 56px;
+  width: 586px;
+  margin: 0 auto;
+}
+.login-header .icon-container {
+  float: left;
+  height: 56px;
+}
+.login-header .icon-container img {
+  width: 131px;
+  height: 40px;
+  margin: 8px 0;
+}
+.login-header .link-container {
+  float: right;
+  height: 56px;
+  padding-top: 25px;
+}
+.login-header .link-container a {
+  color: #36658e;
+  text-decoration: underline;
+}
+.login-banner {
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.login-banner img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.login-banner .login-form-container {
+  width: 586px;
+  height: 280px;
+  margin: 0 auto;
+  position: relative;
+}
+.login-banner .login-form-container .login-form {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 280px;
+  height: 220px;
+  padding: 15px 20px ;
+  background-color: #1f7fca;
+  border-radius: 4px;
+  border: solid 1px #999;
+  background-image: -webkit-linear-gradient(bottom, #1f7fca, #3198e9);
+  background-image: -moz-linear-gradient(bottom, #1f7fca, #3198e9);
+  background-image: -o-linear-gradient(bottom, #1f7fca, #3198e9);
+  background-image: linear-gradient(to top, #1f7fca, #3198e9);
+}
+.login-banner .login-form-container .login-form .login-form-title {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  line-height: 25px;
+}
+.login-banner .login-form-container .login-form .login-form-content .form-text {
+  color: #fff;
+  font-size: 12px;
+}
+.login-banner .login-form-container .login-form .login-form-content .form-input {
+  color: #000;
+  width: 100%;
+  height: 24px;
+  border-radius: 0;
+  padding: 5px;
+}
+.login-banner .login-form-container .login-form .login-form-content .form-link {
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.login-banner .login-form-container .login-form .login-form-content .form-btn {
+  width: 66px;
+  height: 24px;
+  padding: 0;
+  font-size: 12px;
+  background-color: #fff;
+  border-radius: 0;
+}
+.login-banner .login-form-container .login-form .login-form-content .table {
+  display: table;
+  margin: 0;
+}
+.login-banner .login-form-container .login-form .login-form-content .table .row {
+  display: table-row;
+}
+.login-banner .login-form-container .login-form .login-form-content .table .row .cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+.login-footer {
+  text-align: center;
+  padding: 30px 0;
+}
+.login-footer a {
+  color: #36658e;
+}
+.login-footer .copy-right {
+  color: #999999;
+  line-height: 20px;
+}
