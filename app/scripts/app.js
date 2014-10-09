@@ -31,6 +31,14 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/details', {
+        templateUrl: 'views/details.html',
+        controller: 'DetailsCtrl'
+      })
+      .when('/kpicategory', {
+        templateUrl: 'views/kpicategory.html',
+        controller: 'KpicategoryCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

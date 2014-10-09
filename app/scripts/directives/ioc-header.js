@@ -12,7 +12,9 @@ angular.module('iocUiApp')
       templateUrl: 'template/ioc-header.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-        
+        $(".navbar-nav li").click(function(){
+          $(".title_nav_brush").slideToggle("slow");
+		  });
       }
     };
   });
