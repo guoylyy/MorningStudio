@@ -54,7 +54,7 @@ ul {
 }
 .title_nav_brush .title_brush_close {
   text-align: center;
-  color: #999;
+  color: #999999;
 }
 .title_nav_brush .title_brush_close .close_btn:hover {
   color: #333;
@@ -71,7 +71,7 @@ ul {
   height: 150px;
   background: url("../images/bg/bg-small.png") no-repeat 70% 50%;
   background-color: #fcfcfc;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 1px solid #cccccc;
 }
 .details .details_top_bar .details_top_content {
   width: 1170px;
@@ -84,7 +84,7 @@ ul {
   text-shadow: 0px 1px 0 #FFF;
 }
 .details .details_top_bar .details_top_content .bread_crumbs li a {
-  color: #999;
+  color: #999999;
 }
 .details .details_top_bar .details_top_content li {
   font-size: 0.8em;
@@ -98,7 +98,7 @@ ul {
 .details .details_top_bar .details_top_content p {
   width: 600px;
   font-size: 13px;
-  color: #999;
+  color: #999999;
 }
 .details .details_content_nav {
   width: 100%;
@@ -118,9 +118,9 @@ ul {
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  border-top: 1px solid #E5E5E5;
-  border-right: 1px solid #E5E5E5;
-  border-left: 1px solid #E5E5E5;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
   background-color: #dddddd;
   opacity: .90;
 }
@@ -148,7 +148,7 @@ ul {
 }
 .details .details_content .details_table .statics_tab {
   width: 30%;
-  border-right: solid 1px #ccc;
+  border-right: solid 1px #cccccc;
 }
 .details .details_content .details_table .statics_tab li {
   padding-top: 10px;
@@ -177,6 +177,11 @@ ul {
   text-align: center;
   font-size: 15px;
 }
+.split-bar {
+  height: 25px;
+  margin-bottom: 15px;
+  display: block;
+}
 .itab {
   border: 1px #ccc solid;
   margin-bottom: 15px;
@@ -186,7 +191,7 @@ ul {
 .itab .itab-header {
   height: 40px;
   background-image: linear-gradient(to top, #1f7fca, #339aea);
-  border-bottom: solid #ccc 1px;
+  border-bottom: solid #cccccc 1px;
 }
 .itab .itab-header h2 {
   font-size: 17px;
@@ -224,6 +229,9 @@ ul {
   cursor: pointer;
   background-color: #f9f9f9;
 }
+.itab .itab-content-data {
+  padding-top: 0px;
+}
 .radius {
   border-radius: 5px 5px 0px 0px;
 }
@@ -233,7 +241,7 @@ ul {
 .wrap_panel {
   margin-top: 10px;
   padding: 10px;
-  border: solid 1px #ccc;
+  border: solid 1px #cccccc;
 }
 .wrap_panel .header {
   font-size: 15px;
@@ -245,9 +253,6 @@ ul {
 }
 .wrap_panel .header-green {
   border-left-color: green;
-}
-.wrap-gray {
-  background-color: #efefef;
 }
 .fill_panel {
   padding: 0px;

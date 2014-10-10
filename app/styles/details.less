@@ -1,3 +1,7 @@
+@main-color:linear-gradient(to top, #1f7fca, #339aea);
+@desc-text-color:#999;
+@border-color:#ccc;
+
 .navbar .container{
 	width: 1170px;
 }
@@ -18,14 +22,6 @@ ul{
 		border-left: 3px #333 solid;
 		background-color: #eee;
 	}
-}
-
-.ico-icon{
-
-}
-
-.ico-btn{
-
 }
 
 .title_nav_brush{
@@ -67,7 +63,7 @@ ul{
 	}
 	.title_brush_close{
 		text-align: center;
-		color: #999;
+		color: @desc-text-color;
 		.close_btn:hover{
 			color: #333;
 			cursor: pointer;
@@ -85,7 +81,7 @@ ul{
 		height: 150px;
 		background: url("../images/bg/bg-small.png") no-repeat 70% 50%;;
 		background-color: #fcfcfc;
-		border-bottom: 1px solid #E5E5E5;
+		border-bottom: 1px solid @border-color;
 		.details_top_content {
 			width: 1170px;
 			margin: 0 auto;
@@ -96,7 +92,7 @@ ul{
 				text-shadow: 0px 1px 0 #FFF;
 				li{
 					a{
-						color: #999;
+						color: @desc-text-color;
 					}
 				}
 			}
@@ -112,7 +108,7 @@ ul{
 			p{
 				width: 600px;
 				font-size: 13px;
-				color: #999;
+				color: @desc-text-color;
 			}
 
 		}
@@ -133,9 +129,9 @@ ul{
 				padding: 10px;
 				padding-left: 20px;
 				padding-right: 20px;
-				border-top: 1px solid #E5E5E5;
-				border-right: 1px solid #E5E5E5;
-				border-left: 1px solid #E5E5E5;
+				border-top: 1px solid @border-color;
+				border-right: 1px solid @border-color;
+				border-left: 1px solid @border-color;
 				background-color: #dddddd;
 				opacity: .90;
 				a{
@@ -165,7 +161,7 @@ ul{
 		.details_table{
 			.statics_tab{
 				width: 30%;
-				border-right: solid 1px #ccc;
+				border-right: solid 1px @border-color;
 				li{
 					padding-top: 10px;
 					border-bottom: solid 1px #fff;
@@ -201,6 +197,12 @@ ul{
 }
 
 
+.split-bar{
+	height: 25px;
+	margin-bottom: 15px;
+	display: block;
+}
+
 .itab{
 	border: 1px #ccc solid;
 	margin-bottom: 15px;
@@ -220,8 +222,8 @@ ul{
 				font-size: 15px;
 			}
 		}
-		background-image: linear-gradient(to top, #1f7fca, #339aea);
-		border-bottom: solid #ccc 1px;
+		background-image: @main-color;
+		border-bottom: solid @border-color 1px;
 		.right-header{
 			padding: 10px;
 			color: white;
@@ -254,21 +256,22 @@ ul{
 			}
 		}
 	}
+	.itab-content-data{
+		padding-top: 0px;
+	}
 
 }
 
 .radius{
 	border-radius: 5px 5px 0px 0px;
 }
-
-
 .none_wrap_panel{
 	padding-bottom: 10px;
 }
 .wrap_panel{
 	margin-top: 10px;
 	padding:10px;
-	border:solid 1px #ccc;
+	border:solid 1px @border-color;
 	.header{
 		font-size: 15px;
 		padding: 0px;
@@ -276,15 +279,12 @@ ul{
 		border-left: 3px solid #333;
 		padding-left: 5px;
 		width: 90%;
-
 	}
 	.header-green{
 		border-left-color: green;
 	}
 }
-.wrap-gray{
-	background-color: #efefef;
-}
+
 .fill_panel{
 	padding: 0px;
 }
