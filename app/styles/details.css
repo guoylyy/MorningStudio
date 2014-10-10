@@ -13,7 +13,8 @@ ul {
   padding: 0px;
 }
 .bs-docs-sidenav li.active {
-  border-left: 2px #333 solid;
+  border-left: 3px #333 solid;
+  background-color: #eee;
 }
 .title_nav_brush {
   height: 270px;
@@ -168,6 +169,63 @@ ul {
   font-size: 15px;
   padding-bottom: 5px;
   border-bottom: 2px #333 solid;
+}
+.details .details_content .info-panel .desc {
+  color: #999;
+}
+.details .details_content .info-panel .pie-title {
+  text-align: center;
+  font-size: 15px;
+}
+.itab {
+  border: 1px #ccc solid;
+  margin-bottom: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.itab .itab-header {
+  height: 40px;
+  background-image: linear-gradient(to top, #1f7fca, #339aea);
+  border-bottom: solid #ccc 1px;
+}
+.itab .itab-header h2 {
+  font-size: 17px;
+  padding: 0px;
+  margin: 10px 0 0 0;
+  padding-left: 15px;
+  float: left;
+  display: block;
+  color: white;
+}
+.itab .itab-header h2 span {
+  font-size: 15px;
+}
+.itab .itab-header .right-header {
+  padding: 10px;
+  color: white;
+}
+.itab .itab-header .right-header ul li {
+  float: left;
+  padding: 0 5px 0 5px;
+  margin: 0 5px 0 5px;
+  cursor: pointer;
+}
+.itab .itab-header .right-header ul .active {
+  border-bottom: 2px solid #fcfcfc;
+}
+.itab .itab-content {
+  padding: 10px 0 10px 0;
+  min-height: 50px;
+}
+.itab .itab-content .itab-data thead {
+  background-color: #f9f9f9;
+}
+.itab .itab-content .itab-data tr:hover {
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+.radius {
+  border-radius: 5px 5px 0px 0px;
 }
 .none_wrap_panel {
   padding-bottom: 10px;

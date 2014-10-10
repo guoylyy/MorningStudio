@@ -22,9 +22,11 @@ angular.module('iocUiApp')
   			alert("test");
   		}
 
-      $(".close_btn").click(function(){
-        $(".title_nav_brush").slideToggle();
-      })
+       $('.pie_chart').easyPieChart({
+          lineWidth : 7,
+          barColor: "#1f7fca"
+       });
+      
       $('#chart1').highcharts({
           title: {
               text: 'Monthly Average Temperature',

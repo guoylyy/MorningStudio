@@ -13,8 +13,16 @@ angular.module('iocUiApp')
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
         $(".navbar-nav li").click(function(){
-          $(".title_nav_brush").slideToggle("slow");
-		  });
+          $(".title_nav_brush").css("display","none");
+          var n = $(this).attr("id")+"_dropdown";
+          $("#"+n).slideToggle("slow");
+		    });
+
+        $(".close_btn").click(function(){
+          var n = $(this).attr("value")+"_dropdown";
+          $("#"+n).slideToggle("slow");
+        })
+
       }
     };
   });
