@@ -8,10 +8,14 @@
  * Controller of the morningStudioApp
  */
 angular.module('morningStudioApp')
-  .controller('LoginCtrl', function ($scope) {
+  .controller('LoginCtrl', ['$scope', 'SweetAlert',function ($scope, SweetAlert) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+    $scope.login = function(){
+      SweetAlert.swal('FSADFSA');
+    };
+    
+  }]);
