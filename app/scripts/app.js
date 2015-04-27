@@ -25,6 +25,18 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/recorder', {
+        templateUrl: 'views/recorder.html',
+        controller: 'RecorderCtrl'
+      })
+      .when('/studio', {
+        templateUrl: 'views/studio.html',
+        controller: 'StudioCtrl'
+      })
+      .when('/task', {
+        templateUrl: 'views/task.html',
+        controller: 'TaskCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
