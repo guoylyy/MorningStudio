@@ -8,7 +8,7 @@
  * Factory in the morningStudioApp.
  */
 angular.module('morningStudioApp')
-  .factory('studio', function () {
+  .factory('Studio', function () {
     // Service logic
     // ...
 

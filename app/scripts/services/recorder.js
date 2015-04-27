@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc service
- * @name morningStudioApp.task
+ * @name morningStudioApp.recorder
  * @description
- * # task
+ * # recorder
  * Factory in the morningStudioApp.
  */
 angular.module('morningStudioApp')
-  .factory('Task', function () {
+  .factory('Recorder', function () {
     // Service logic
     // ...
 
