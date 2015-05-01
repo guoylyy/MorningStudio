@@ -1,0 +1,62 @@
+<lab-header></lab-header>
+
+<div class="loginBannerContainer">
+  <div class="loginBannerBack">
+    <div width="2000" height="800" style="width:100%;height:600px;">
+      <img src="app/images/bg/login-banner.png"/>
+    </div>
+  </div>
+  <div class="loginFormBack">
+    <div class="container">
+      <div class="login-title-container">
+        <div class="title">清晨录音棚</div>
+        <div class="sub-title">Morning Studio</div>
+      </div>
+      <div class="login-form-container" >
+        <lab-login-form class="login-form" ng-if="!loginUser">
+          <form name="loginForm" ng-submit="login()">
+            <h4 class="login-form-heading">登录</h4>
+            <input name="userName" type="text" class="form-control login-input" placeholder="登录名" autofocus="" ng-model="user.username" ng-required="true">
+            <input name="userPWD" type="password" class="form-control login-input" placeholder="密码" ng-model="user.password" ng-required="true">
+            <label class="checkbox" style="width: 150px;margin-left:0px; padding-left:0px;">&nbsp;</label>
+            <div>
+              <span class="red">{{message}}</span>
+            </div>
+            <input class="btn btn-primary login-btn theme-1" value="登录" type="submit" />
+           <!--  <a href="#/register">
+              忘记密码?&nbsp;
+              <span class=""></span>
+            </a> -->
+          </form>
+        </lab-login-form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="login-content-container">
+    <div class="login-title">在这里, 你将可以</div>
+    <div class="login-tile first"> <i class="fa fa-cloud-download fa-3"></i>
+      <span class="name">管理资源</span>
+      <span class="info">通过在线平台，上传实数据，获取材料</span>
+    </div>
+    <div class="login-tile"> <i class="fa fa-calendar fa-3"></i>
+      <span class="name">预约</span>
+      <span class="info">录音棚都可以让你方便地预约</span>
+    </div>
+    <div class="login-tile">
+      <i class="fa fa-users fa-3"></i>
+      <span class="name">线上实验交流</span>
+      <span class="info">开放线上功能，</span>
+      <span class="ticket">顶顶顶顶</span>
+    </div>
+    <div class="login-tile last">
+      <i class="fa fa-twitch fa-3"></i>
+      <span class="name">反馈和意见</span>
+      <span class="info">在线为录音棚建设提供宝贵意见和建议</span>
+      <span class="ticket">顶顶顶顶</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+Cloud code project for morningStudio. Cloud Code Guide: https://cn.avoscloud.com/docs/cloud_code_guide.html
