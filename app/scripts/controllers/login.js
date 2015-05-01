@@ -7,15 +7,18 @@
  * # LoginCtrl
  * Controller of the morningStudioApp
  */
-angular.module('morningStudioApp')
-  .controller('LoginCtrl', ['$scope', 'SweetAlert',function ($scope, SweetAlert) {
+angular.module('labcloud')
+  .controller('LoginController', ['$scope', 'SweetAlert','informService',function ($scope, SweetAlert, informService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
     $scope.login = function(){
-      SweetAlert.swal('FSADFSA');
+      //测试提示接口
+      informService.signleComfirmInform('tesfa',function(){
+        console.log('test');
+      });
     };
     
   }]);

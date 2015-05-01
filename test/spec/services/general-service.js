@@ -3,7 +3,7 @@
 describe('Service: generalService', function () {
 
   // load the service's module
-  beforeEach(module('morningStudioApp'));
+  beforeEach(module('labcloud'));
 
   // instantiate service
   var generalService;

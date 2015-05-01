@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('morningStudioApp', [
+  .module('labcloud', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -18,27 +18,45 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'oitozero.ngSweetAlert'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/recorder', {
-        templateUrl: 'views/recorder.html',
-        controller: 'RecorderCtrl'
-      })
-      .when('/studio', {
-        templateUrl: 'views/studio.html',
-        controller: 'StudioCtrl'
-      })
-      .when('/task', {
-        templateUrl: 'views/task.html',
-        controller: 'TaskCtrl'
-      })
-      .when('/', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+    'ngStorage',
+    'ui.router',
+    'ui.sortable',
+    'ui.bootstrap',
+    'ui.date',
+    'ui.tinymce',
+    'ui.select2',
+
+
+    //for test
+    'oitozero.ngSweetAlert',
+    // 'angularFileUpload',
+    'dialogs.main',
+    'ui.bootstrap.datepicker',
+    "oc.lazyLoad"
+  ]);
+  // .config(function ($routeProvider) {
+  //   $routeProvider
+  //     .when('/', {
+  //       templateUrl: 'views/login.html',
+  //       controller: 'LoginController'
+  //     })
+  //     .when('/user-manage', {
+  //       templateUrl: 'views/user-manage.html',
+  //       controller: 'UserManageCtrl'
+  //     })
+  //     .when('/lab-manage', {
+  //       templateUrl: 'views/lab-manage.html',
+  //       controller: 'LabManageCtrl'
+  //     })
+  //     .when('/apply-manage', {
+  //       templateUrl: 'views/apply-manage.html',
+  //       controller: 'ApplyManageCtrl'
+  //     })
+  //     .when('/semester', {
+  //       templateUrl: 'views/semester.html',
+  //       controller: 'SemesterManageCtrl'
+  //     })
+  //     .otherwise({
+  //       redirectTo: '/'
+  //     });
+  // });

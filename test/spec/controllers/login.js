@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: LoginCtrl', function () {
+describe('Controller: LoginController', function () {
 
   // load the controller's module
-  beforeEach(module('morningStudioApp'));
+  beforeEach(module('labcloud'));
 
-  var LoginCtrl,
+  var LoginController,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    LoginCtrl = $controller('LoginCtrl', {
+    LoginController = $controller('LoginController', {
       $scope: scope
     });
   }));

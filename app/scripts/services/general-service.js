@@ -7,7 +7,7 @@
  * # generalService
  * Service in the morningStudioApp.
  */
-angular.module('morningStudioApp')
+angular.module('labcloud')
   .service('generalService', function () {
     // AngularJS will instantiate a singleton by calling "new" on this function
     
