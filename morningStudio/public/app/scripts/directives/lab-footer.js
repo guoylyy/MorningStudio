@@ -9,7 +9,7 @@
 angular.module('labcloud')
   .directive('labFooter', function () {
     return {
-      templateUrl: 'app/templates/lab-footer.html',
+      templateUrl: '/app/templates/lab-footer.html',
       restrict: 'E',
       controller: function ($scope, $rootScope, $location) {
         

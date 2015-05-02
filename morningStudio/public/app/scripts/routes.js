@@ -5,7 +5,7 @@ var app = angular.module('labcloud')
     function($stateProvider,$urlRouterProvider,$locationProvider){
 
     $locationProvider.html5Mode({
-      enabled: false,
+      enabled: true,
       requireBase: false
     });
     $urlRouterProvider
@@ -13,7 +13,7 @@ var app = angular.module('labcloud')
     $stateProvider
         .state('login', {
           url: "/login",
-          templateUrl: "app/views/login.html",
+          templateUrl: "/app/views/login.html",
           controller: 'LoginController',
           resolve: {
             deps: ['$ocLazyLoad',
@@ -23,7 +23,7 @@ var app = angular.module('labcloud')
           }
         }).state('task', {
           url: "/task/list",
-          templateUrl: "app/views/main.html",
+          templateUrl: "/app/views/main.html",
           resolve: {
             taskStatus: function(dictService){
               return dictService.taskStatus();
@@ -44,7 +44,7 @@ var app = angular.module('labcloud')
           controller: 'MainController'
         }).state('studio', {
           url: "/studio/manage",
-          templateUrl: "app/views/studio-manage.html",
+          templateUrl: "/app/views/studio-manage.html",
           resolve: {
             studios: function(studioService){
               return studioService.listAll();

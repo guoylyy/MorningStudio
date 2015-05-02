@@ -24,7 +24,7 @@ angular.module('labcloud')
       loginService.login($scope.user).then(function(u){
         if(u.status == 200){
           generalService.persistentUser(u.data);
-           window.location.href = '/#/task/list';
+           window.location.href = '/task/list';
         }else{
           alert('登录失败，服务器开了小差!');
         }

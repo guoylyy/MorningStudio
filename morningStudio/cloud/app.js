@@ -21,7 +21,11 @@ var config = require('cloud/config.js');
 
 var pageSize = 10;
 // App 全局配置
-app.set('views','cloud/views');   // 设置模板目录
+if (__production) {
+    app.set('views', 'cloud/views');    
+} else {
+    app.set('views', 'cloud/views');
+}
 app.set('view engine', 'ejs');    // 设置 template 引擎
 app.use(express.bodyParser());    // 读取请求 body 的中间件
 app.use(avosExpressHttpsRedirect());
@@ -32,6 +36,35 @@ app.use(avosExpressCookieSession({    //设置 cookie
     }, 
     fetchUser: true
 }));
+app.use(expressLayouts);
+app.use(app.router);
+app.use(express.static('public'));  //public
+
+// 使用 Express 路由 API 服务 /hello 的 HTTP GET 请求
+app.get('/', function(req, res) {
+  res.render('index.ejs');
+});
+
+app.get('/index', function(req, res){
+  if(isLogin()){
+    res.redirect('/task/list');
+  }else{
+    res.redirect('/login');
+  }
+});
+
+app.get('/login', function(req, res){
+  res.render('index.ejs');
+});
+app.get('/task/list',function(req,res){
+  res.render('index.ejs');
+});
+app.get('/studio/manage',function(req,res){
+  res.render('index.ejs');
+});
+
+
+
 
 function isLogin() {
   return AV.User.current();
@@ -270,10 +303,7 @@ function saveObject(obj, res){
 
 
 
-// 使用 Express 路由 API 服务 /hello 的 HTTP GET 请求
-app.get('/', function(req, res) {
-  res.render('index.ejs');
-});
+
 
 // 最后，必须有这行代码来使 express 响应 HTTP 请求
 app.listen({"static": {maxAge: 604800000}});
