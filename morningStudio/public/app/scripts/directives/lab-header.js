@@ -13,7 +13,13 @@ angular.module('labcloud')
       restrict: 'E',
       controller: function ($scope, $rootScope, $location, generalService,loginService) {
         if(!generalService.getLoginUser()){
-          $location.path('/login');
+          loginService.isLogin().then(function(u){
+            if(u.code == 200){
+              generalService.persistentUser(u.data);
+            }else{
+              $location.path('/login');
+            }
+          })
         }
         $scope.logout = function(){
           loginService.logout().then(function(rc){

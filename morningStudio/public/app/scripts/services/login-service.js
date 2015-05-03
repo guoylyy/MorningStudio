@@ -18,6 +18,9 @@ angular.module('labcloud')
       },
       logout: function(){
         return $http.get(ApiUrl + userUrl + "/logout");
+      },
+      isLogin: function(){
+        return $http.get(ApiUrl + userUrl + "/isLogin");
       }
     };
   });

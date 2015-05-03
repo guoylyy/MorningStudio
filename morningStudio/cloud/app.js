@@ -78,7 +78,14 @@ function check_login(res){
   }
 };
 
-
+app.get(config.baseUrl + '/account/isLogin', function(req, res){
+  var u = isLogin();
+  if(u){
+    mutil.renderData(res, u);
+  }else{
+    mutil.renderError(res, {code:500, message:'请重新登录!'});
+  }
+});
 
 app.get(config.baseUrl +'/account/logout', function(req, res){
   AV.User.logOut();
