@@ -4,8 +4,8 @@
         <tabset>
             <tab name="" ui-sref="task" disabled="true">
                 <tab-heading class="spaces" >
-                      <span class="title">工单管理</span>
-                    <span class="info">管理统计工单</span>
+                      <span class="title">任务管理</span>
+                    <span class="info">管理统计任务</span>
                 </tab-heading>
             </tab>
             <tab name="" active="true">
@@ -39,7 +39,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="studio in studios">
+                                        <tr ng-repeat="studio in studios" class="middle-tr">
                                             <td style="width: 25px; border:none;"></td>
                                             <td style="width: 106px;">
                                                 <span class="id">{{studio.number}}</span>
@@ -97,7 +97,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="recorder in recorders">
+                                        <tr ng-repeat="recorder in recorders" class="middle-tr">
                                             <td style="width: 25px; border:none;"></td>
                                             <td style="width: 70px;">
                                                 <span class="id">{{recorder.number}}</span>

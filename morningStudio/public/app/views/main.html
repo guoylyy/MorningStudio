@@ -4,28 +4,28 @@
         <tabset>
             <tab name="" >
                 <tab-heading class="spaces" active="true">
-                    <span class="title">工单管理</span>
-                    <span class="info">管理统计工单</span>
+                    <span class="title">任务管理</span>
+                    <span class="info">管理统计任务</span>
                 </tab-heading>
                 <div class="command-content-container spaces" style="background-color: #f1f1f1;">
                     <tabset vertical="true" type="pills">
                         <tab>
                             <tab-heading>
-                                <span class="name">录音工单管理</span>
+                                <span class="name">录音任务管理</span>
                             </tab-heading>
 
-                            <div class="tableTitle">共 {{taskMap.totalNum}} 个工单</div>
+                            <div class="tableTitle">共 {{taskMap.totalNum}} 个任务</div>
                             <div class="tableContainer">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th style="width: 25px;"></th>
-                                            <th style="width: 70px;">工单编号</th>
+                                            <th style="width: 70px;">任务编号</th>
                                             <th style="width: 60px;">客户</th>
                                             <th style="width: 60px;">录音师</th>
-                                            <th style="width: 100px;">录音日期</th>
+                                            <th style="width: 85px;">录音日期</th>
                                             <th style="width: 80px;">费用</th>
-                                            <th style="width: 80px;">消费类型</th>
+                                            <th style="width: 100px;">录音棚</th>
                                             <th style="width: 100px;">任务状态</th>
                                             <th>
                                                 <div class="btn-group-head">
@@ -38,7 +38,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="task in taskMap.values">
+                                        <tr ng-repeat="task in taskMap.values" class="small-tr">
                                             <td style="width: 25px; border:none;"></td>
                                             <td style="width: 70px;">
                                                 <span class="id">{{task.number}}</span>
@@ -49,14 +49,14 @@
                                             <td style="width: 60px;">
                                                 <span class="date">{{task.recorder.name}}</span>
                                             </td>
-                                            <td style="width: 100px;">
+                                            <td style="width: 85px;">
                                                 <span class="date" ng-class="" style="width:100px;">{{task.taskDate | date:'yyyy-MM-dd'  }}</span>
                                             </td>
                                             <td style="width: 80px;">
                                                 <span class="name">{{task.cost}}</span>
                                             </td>
                                             <td style="width: 100px;">
-                                                <span class="name">{{task.businessType.text}}</span>
+                                                <span class="name">{{task.studio.name}}</span>
                                             </td>
                                             <td style="width: 60px;">
                                                 <span class="date label {{task.taskStatus | taskStatusLabel}}" style="width:52px;">{{task.taskStatus.text}}</span>
@@ -67,7 +67,7 @@
                                                     
                                                     <button class="btn cdi-btn-default" ng-click="taskForm(task)" style="width:60px">编辑</button>
                                                     <div style="width: 13px;height: 25px;float: right;"></div>
-                                                    <button class="btn  btn-default" ng-click="deleteTask(task.objectId)" style="width:60px">移除</button>
+                                                    <button class="btn   cdi-btn-default btn-danger" ng-click="deleteTask(task.objectId)" style="width:60px">移除</button>
                                                 </div>
                                             </td>
                                             <td style="width: 20px; border:none;"></td>
@@ -77,16 +77,16 @@
                                 </table>
                             </div>
                             <div class="paginationContainer">
-                                <pagination direction-links="false" total-items="taskMap.totalNum" ng-model="taskMap.currentPage" ng-change="pageChange()" items-per-page="10"></pagination>
+                                <pagination direction-links="false" total-items="taskMap.totalNum" ng-model="taskMap.currentPage" ng-change="pageChange()" items-per-page="18"></pagination>
                             </div>
 
                             <div class="pagerContainer2">
-                                <pager total-items="taskMap.totalNum" items-per-page="10" ng-model="taskMap.currentPage" ng-change="pageChange()" previous-text="<" next-text=">"></pager>
+                                <pager total-items="taskMap.totalNum" items-per-page="18" ng-model="taskMap.currentPage" ng-change="pageChange()" previous-text="<" next-text=">"></pager>
                             </div>
                         </tab>
                         <tab>
                             <tab-heading>
-                                <span class="name">工单统计</span>
+                                <span class="name">任务统计</span>
                             </tab-heading>
 
                             <div class="tableTitle">共 {{ itemPageResult.experiment.totalItemNum }} 个实验</div>

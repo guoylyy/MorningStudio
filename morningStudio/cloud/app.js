@@ -19,7 +19,7 @@ var mtask = require('cloud/mtask.js');
 var mconfig = require('cloud/mconfig.js');
 var config = require('cloud/config.js');
 
-var pageSize = 10;
+var pageSize = 18;
 // App 全局配置
 if (__production) {
     app.set('views', 'cloud/views');    

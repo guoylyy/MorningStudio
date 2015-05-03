@@ -12,11 +12,11 @@ angular.module('labcloud')
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.persistentUser = function(loginUser){
       $rootScope.loginUser = loginUser;
-      $sessionStorage.loginUser = loginUser;
+      $localStorage.loginUser = loginUser;
     };
 
     this.clearStorage = function(){
-      delete $sessionStorage.loginUser;
+      delete $localStorage.loginUser;
       delete $rootScope.loginUser;
       $location.path('/');
     }
@@ -24,8 +24,8 @@ angular.module('labcloud')
     this.getLoginUser = function(){
       if($rootScope.loginUser != undefined){
         return $rootScope.loginUser;
-      }else if($sessionStorage.loginUser != undefined){
-        $rootScope.loginUser = $sessionStorage.loginUser;
+      }else if($localStorage.loginUser != undefined){
+        $rootScope.loginUser = $localStorage.loginUser;
         return $rootScope.loginUser;
       }else{
         return false;

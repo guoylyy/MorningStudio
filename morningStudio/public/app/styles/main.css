@@ -4435,6 +4435,12 @@ th {
 .command-content-container .tableContainer .table tbody tr {
   height: 102px;
 }
+.command-content-container .tableContainer .table tbody tr.small-tr {
+  height: 52px;
+}
+.command-content-container .tableContainer .table tbody tr.middle-tr {
+  height: 77px;
+}
 .command-content-container .tableContainer .table tbody tr.last td {
   border: none;
 }
@@ -6667,4 +6673,7 @@ td.closed {
 .nav > li.disabled > a:hover,
 .nav > li.disabled > a:focus {
   cursor: pointer;
+}
+.label-default {
+  padding: 2px;
 }

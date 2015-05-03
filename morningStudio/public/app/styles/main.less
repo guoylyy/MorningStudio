@@ -4579,6 +4579,12 @@ th {
       tbody{
         tr {
           height: 102px;
+          &.small-tr {
+            height: 52px;
+          }
+          &.middle-tr {
+            height: 77px;
+          }
           &.last {
             td {
               border: none;
@@ -6814,4 +6820,7 @@ td.closed {
 }
 .nav > li.disabled > a:hover, .nav > li.disabled > a:focus{
   cursor:pointer;
+}
+.label-default{
+  padding:2px;
 }
