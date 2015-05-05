@@ -30,7 +30,8 @@ angular
     // 'angularFileUpload',
     'dialogs.main',
     'ui.bootstrap.datepicker',
-    "oc.lazyLoad"
+    "oc.lazyLoad",
+    'highcharts-ng'
   ])
   .constant("ApiUrl","/v1")
   .config(['$httpProvider', function($httpProvider){

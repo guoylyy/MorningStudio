@@ -1856,7 +1856,7 @@ th {
 .navbar.manage .navbar-nav li a:hover,
 .navbar.manage .navbar-nav li a:focus {
   background-color: transparent;
-  color: #fff;
+  color: #5E82BC;
 }
 .navbar.public .navbar-nav li a.active {
   color: #e5004f;
@@ -3347,7 +3347,7 @@ th {
 }
 .command-content-container .tab-content {
   float: left;
-  width: 766px;
+  width: 795px;
 }
 .command-content-container .tab-content .item-container {
   border-bottom: 1px solid #d6d6d6;
@@ -4419,6 +4419,19 @@ th {
   border-bottom: 1px solid #dbdbdb;
   line-height: 50px;
 }
+.command-content-container .tableContainer .table thead tr.op-tr {
+  height: 52px;
+}
+.command-content-container .tableContainer .table thead tr.op-tr td,
+.command-content-container .tableContainer .table thead tr.op-tr th {
+  padding-right: 5px;
+  padding-left: 5px;
+  border: none;
+}
+.command-content-container .tableContainer .table thead tr.op-tr td.last,
+.command-content-container .tableContainer .table thead tr.op-tr th.last {
+  padding: 0;
+}
 .command-content-container .tableContainer .table thead tr th {
   font-family: HelveticaNeue Light, Heiti SC, Lantinghei;
   padding: 0;
@@ -4438,8 +4451,19 @@ th {
 .command-content-container .tableContainer .table tbody tr.small-tr {
   height: 52px;
 }
+.command-content-container .tableContainer .table tbody tr.mini-tr {
+  height: 34px;
+}
 .command-content-container .tableContainer .table tbody tr.middle-tr {
   height: 77px;
+}
+.command-content-container .tableContainer .table tbody tr.op-tr {
+  height: 52px;
+}
+.command-content-container .tableContainer .table tbody tr.op-tr td {
+  padding-right: 5px;
+  padding-left: 5px;
+  border: none;
 }
 .command-content-container .tableContainer .table tbody tr.last td {
   border: none;
@@ -4534,6 +4558,10 @@ th {
   color: #969696;
   font-size: 12px;
   font-family: HelveticaNeue Light, Heiti SC, Lantinghei;
+}
+.command-content-container .tableContainer .filterTable {
+  background-color: #3F5881;
+  opacity: 0.85;
 }
 .command-content-container .paginationContainer {
   float: right;
@@ -6676,4 +6704,13 @@ td.closed {
 }
 .label-default {
   padding: 2px;
+}
+.search-head {
+  line-height: 31px;
+}
+.tableFilterPane tr {
+  height: 40px;
+}
+.tableFilterPane .op-tr {
+  height: 40px;
 }

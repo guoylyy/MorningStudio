@@ -10,7 +10,7 @@ function createTask(reqBody, recorder, studio){
 
 function updateTask(task,reqBody){
   task.set('client',reqBody.client);
-  task.set('taskDate', reqBody.taskDate);
+  task.set('taskDate', new Date(reqBody.taskDate));
   task.set('cost', reqBody.cost);
   task.set('businessType', reqBody.businessType);
   task.set('content', reqBody.content);

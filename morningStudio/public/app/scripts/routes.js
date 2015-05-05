@@ -38,7 +38,7 @@ var app = angular.module('labcloud')
               return recorderService.listAll();
             },
             tasks: function(taskService){
-              return taskService.listByPage(1);
+              return taskService.listByPage(1,0);
             }
           },
           controller: 'MainController'

@@ -7,7 +7,7 @@
                     <span class="title">任务管理</span>
                     <span class="info">管理统计任务</span>
                 </tab-heading>
-                <div class="command-content-container spaces" style="background-color: #f1f1f1;">
+                <div class="command-content-container user" style="background-color: #f1f1f1;">
                     <tabset vertical="true" type="pills">
                         <tab>
                             <tab-heading>
@@ -15,6 +15,26 @@
                             </tab-heading>
 
                             <div class="tableTitle">共 {{taskMap.totalNum}} 个任务</div>
+                            <div class="tableContainer">
+                                <table class="table filterTable">
+                                    <thead>
+                                        <tr class="small-tr">
+                                            <th style="width: 15px;"></th>
+                                            <th style="width: 60px;color:#fff;">任务状态:</th>
+                                            <th style="width: 150px;">
+                                                <select class="form-control" ng-options="ts.name for ts in taskStatusFilters track by ts.value" ng-model="selected.taskStatus" ng-change="changeTaskStatus()"></select>
+
+                                            </th>
+                                            <th style="width: 35px; color:#fff; padding-left:10px;"></th>
+                                            <th style="width: 250px;"></th>
+                                            <th>
+                                                <div class="btn-group-head"></div>
+                                            </th>
+                                            <th style="width: 10px;"></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
                             <div class="tableContainer">
                                 <table class="table">
                                     <thead>
@@ -29,83 +49,223 @@
                                             <th style="width: 100px;">任务状态</th>
                                             <th>
                                                 <div class="btn-group-head">
-                                                    <button class="btn cdi-btn-default" ng-click="taskForm()">添加</button> 
-                                                    <div style="width: 5px;height: 25px;float: right;"></div> 
-                                                   <!--  <button class="btn cdi-btn-default">查找</button> -->
-                                                </div>
-                                            </th>
-                                            <th style="width: 20px;"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="task in taskMap.values" class="small-tr">
-                                            <td style="width: 25px; border:none;"></td>
-                                            <td style="width: 70px;">
-                                                <span class="id">{{task.number}}</span>
-                                            </td>
-                                            <td style="width: 60px;">
-                                                <span class="code">{{task.client}}</span>
-                                            </td>
-                                            <td style="width: 60px;">
-                                                <span class="date">{{task.recorder.name}}</span>
-                                            </td>
-                                            <td style="width: 85px;">
-                                                <span class="date" ng-class="" style="width:100px;">{{task.taskDate | date:'yyyy-MM-dd'  }}</span>
-                                            </td>
-                                            <td style="width: 80px;">
-                                                <span class="name">{{task.cost}}</span>
-                                            </td>
-                                            <td style="width: 100px;">
-                                                <span class="name">{{task.studio.name}}</span>
-                                            </td>
-                                            <td style="width: 60px;">
-                                                <span class="date label {{task.taskStatus | taskStatusLabel}}" style="width:52px;">{{task.taskStatus.text}}</span>
-                                            </td>
-                                            <td>
-                                                <div class="optionContainer" style="padding: 0;">
-                                                    <!-- <button class="btn cdi-btn-grey" ng-click="configExperimentForLab(lab)">配置实验</button> -->
-                                                    
-                                                    <button class="btn cdi-btn-default" ng-click="taskForm(task)" style="width:60px">编辑</button>
-                                                    <div style="width: 13px;height: 25px;float: right;"></div>
-                                                    <button class="btn   cdi-btn-default btn-danger" ng-click="deleteTask(task.objectId)" style="width:60px">移除</button>
-                                                </div>
-                                            </td>
-                                            <td style="width: 20px; border:none;"></td>
-                                        </tr>
+                                                    <button class="btn cdi-btn-default" ng-click="taskForm()">添加</button>
+                                                    <div style="width: 5px;height: 25px;float: right;"></div>
+                                                    <!--  <button class="btn cdi-btn-default">查找</button>
+                                                -->
+                                            </div>
+                                        </th>
+                                        <th style="width: 20px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="task in taskMap.values" class="small-tr">
+                                        <td style="width: 25px; border:none;"></td>
+                                        <td style="width: 70px;">
+                                            <span class="id">{{task.number}}</span>
+                                        </td>
+                                        <td style="width: 60px;">
+                                            <span class="code">{{task.client}}</span>
+                                        </td>
+                                        <td style="width: 60px;">
+                                            <span class="date">{{task.recorder.name}}</span>
+                                        </td>
+                                        <td style="width: 85px;">
+                                            <span class="date" ng-class="" style="width:100px;">{{task.taskDate | date:'yyyy-MM-dd'  }}</span>
+                                        </td>
+                                        <td style="width: 80px;">
+                                            <span class="name">{{task.cost}}</span>
+                                        </td>
+                                        <td style="width: 100px;">
+                                            <span class="name">{{task.studio.name}}</span>
+                                        </td>
+                                        <td style="width: 60px;">
+                                            <span class="date label {{task.taskStatus | taskStatusLabel}}" style="width:52px;">{{task.taskStatus.text}}</span>
+                                        </td>
+                                        <td>
+                                            <div class="optionContainer" style="padding: 0;">
+                                                <!-- <button class="btn cdi-btn-grey" ng-click="configExperimentForLab(lab)">配置实验</button>
+                                            -->
+                                            <button class="btn cdi-btn-default" ng-click="taskForm(task)" style="width:60px">编辑</button>
+                                            <div style="width: 13px;height: 25px;float: right;"></div>
+                                            <button class="btn   cdi-btn-default btn-danger" ng-click="deleteTask(task.objectId)" style="width:60px">移除</button>
+                                        </div>
+                                    </td>
+                                    <td style="width: 20px; border:none;"></td>
+                                </tr>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="paginationContainer">
-                                <pagination direction-links="false" total-items="taskMap.totalNum" ng-model="taskMap.currentPage" ng-change="pageChange()" items-per-page="18"></pagination>
-                            </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="paginationContainer">
+                        <pagination direction-links="false" total-items="taskMap.totalNum" ng-model="taskMap.currentPage" ng-change="pageChange()" items-per-page="{{pageSize}}"></pagination>
+                    </div>
 
-                            <div class="pagerContainer2">
-                                <pager total-items="taskMap.totalNum" items-per-page="18" ng-model="taskMap.currentPage" ng-change="pageChange()" previous-text="<" next-text=">"></pager>
-                            </div>
-                        </tab>
-                        <tab>
-                            <tab-heading>
-                                <span class="name">任务统计</span>
-                            </tab-heading>
+                    <div class="pagerContainer2">
+                        <pager total-items="taskMap.totalNum" items-per-page="{{pageSize}}" ng-model="taskMap.currentPage" ng-change="pageChange()" previous-text="<" next-text=">"></pager>
+                    </div>
+                </tab>
+                <tab disabled="true">
+                    <tab-heading>
+                        <span class="name">统计</span>
+                    </tab-heading>
+                </tab>
+                <tab class="sub">
+                    <tab-heading ng-click="resetStatictics('day')">
+                        <span class="name">今日实时金额统计</span>
+                    </tab-heading>
+                    <div class="tableTitle">今天是: {{dateConfig.start | date:'yyyy-MM-dd'}}</div>
+                    <div class="tableContainer">
+                        <table class="table filterTable">
+                            <thead>
+                                <tr class="small-tr">
+                                    <th style="width: 15px;"></th>
+                                    <th style="width: 35px;color:#fff;">按照</th>
+                                    <th style="width: 150px;">
+                                        <select class="form-control" ng-options="sway.name for sway in swayFilters track by sway.value" ng-model="selected.sway" ng-change="changeStatictics('day')"></select>
 
-                            <div class="tableTitle">共 {{ itemPageResult.experiment.totalItemNum }} 个实验</div>
-                            <div class="tableContainer">
-                                
-                            </div>
-                            
-                        </tab>
-                    </tabset>
-                </div>
-            </tab>
-            <tab name="" ui-sref="studio" disabled="true">
-                <tab-heading class="spaces" >
-                    <span class="title">录音棚配置</span>
-                    <span class="info">基础设施配置</span>
-                </tab-heading>
-            </tab>
+                                    </th>
+                                    <th style="width: 35px; color:#fff; padding-left:10px;">统计</th>
+                                    <th style="width: 250px;"></th>
+                                    <th>
+                                        <div class="btn-group-head"></div>
+                                    </th>
+                                    <th style="width: 10px;"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="row" style="padding-top:20px;">
+                        <div class="tableContainer col-md-4" >
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 25px;"></th>
+                                        <th style="width: 106px;">{{selected.sway.name}}</th>
+                                        <th style="width: 142px;">金额</th>
 
-           
-        </tabset>
-    </div>
+                                        <th style="width: 20px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="mini-tr"  ng-repeat="d in chartData">
+                                        <td style="width: 25px; border:none;"></td>
+                                        <td style="width: 70px;">
+                                            <span class="date">{{d[0]}}</span>
+                                        </td>
+                                        <td style="width: 133px;">
+                                            <span class="name">{{d[1]}}</span>
+                                        </td>
+
+                                        <td style="width: 20px; border:none;"></td>
+                                    </tr>
+                                    <tr class="mini-tr">
+                                        <td style="width: 25px; border:none;"></td>
+                                        <td style="width: 70px;">
+                                            <span class="date"><strong>合计</strong></span>
+                                        </td>
+                                        <td style="width: 133px;">
+                                            <span class="name"><strong>{{sum}} 元</strong></span>
+                                        </td>
+
+                                        <td style="width: 20px; border:none;"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-8">
+                            <highchart id="chart1" config="chartConfig"></highchart>
+                        </div>
+                    </div>
+
+                    <div class="pagerContainer2">
+                        <pager total-items="totalCount" ng-model="currentPage.currentPage" items-per-page="8" ng-change="pageChanged()" previous-text="<" next-text=">"></pager>
+                    </div>
+                </tab>
+                <tab class="sub">
+                    <tab-heading ng-click="resetStatictics('month')">
+                        <span class="name">月度金额统计</span>
+                    </tab-heading>
+                    <div class="tableTitle">
+                        统计时段: {{dateConfig.start | date:'yyyy-MM-dd'}} ~ {{dateConfig.end | date:'yyyy-MM-dd'}}
+                    </div>
+                    <div class="tableContainer">
+                        <table class="table filterTable">
+                            <thead>
+                                <tr class="small-tr">
+                                    <th style="width: 15px;"></th>
+                                    <th style="width: 35px;color:#fff;">按照</th>
+                                    <th style="width: 150px;">
+                                        <select class="form-control" ng-options="sway.name for sway in swayFilters track by sway.value" ng-model="selected.sway" ng-change="changeStatictics('month')"></select>
+                                    </th>
+                                    <th style="width: 35px; color:#fff; padding-left:10px;">统计</th>
+                                    <th style="width: 250px;"></th>
+                                    <th>
+                                        <div class="btn-group-head"></div>
+                                    </th>
+                                    <th style="width: 10px;"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="row" style="padding-top:20px;">
+                        <div class="tableContainer col-md-4" >
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 25px;"></th>
+                                        <th style="width: 106px;">{{selected.sway.name}}</th>
+                                        <th style="width: 142px;">金额</th>
+
+                                        <th style="width: 20px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="mini-tr"  ng-repeat="d in chartData">
+                                        <td style="width: 25px; border:none;"></td>
+                                        <td style="width: 70px;">
+                                            <span class="date">{{d[0]}}</span>
+                                        </td>
+                                        <td style="width: 133px;">
+                                            <span class="name">{{d[1]}}</span>
+                                        </td>
+
+                                        <td style="width: 20px; border:none;"></td>
+                                    </tr>
+                                    <tr class="mini-tr">
+                                        <td style="width: 25px; border:none;"></td>
+                                        <td style="width: 70px;">
+                                            <span class="date"><strong>合计</strong></span>
+                                        </td>
+                                        <td style="width: 133px;">
+                                        <span class="name"><strong>{{sum}} 元</strong></span>
+                                        </td>
+
+                                        <td style="width: 20px; border:none;"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-8">
+                            <highchart id="chart1" config="chartConfig"></highchart>
+                        </div>
+                    </div>
+                    <div class="pagerContainer2">
+                        <pager total-items="totalCount" ng-model="currentPage.currentPage" items-per-page="8" ng-change="pageChanged()" previous-text="<" next-text=">"></pager>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </tab>
+    <tab name="" ui-sref="studio" disabled="true">
+        <tab-heading class="spaces" >
+            <span class="title">录音棚配置</span>
+            <span class="info">基础设施配置</span>
+        </tab-heading>
+    </tab>
+
+</tabset>
+</div>
 </div>
