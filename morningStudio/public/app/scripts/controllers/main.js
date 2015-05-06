@@ -109,7 +109,7 @@ angular.module('labcloud')
           };
           if(sum == 0){
             chartData.values = [];
-            informService.signleConfirmInform('还没有任何统计数据','请录入数据过后再来查看!','warning',
+            informService.signleConfirmInform('今天还没有任何统计数据','请录入数据过后再来查看!','warning',
               function(){});
           }
           $scope.sum = sum;

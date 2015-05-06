@@ -156,6 +156,10 @@ function getTime(m, type, scale) {
   }else{
     return null;
   }
+  if(scale == 'month' && type == 'end'){
+    m = m.endOf('day');
+    //console.log(m.toDate());
+  }
   return m;
 };
 
@@ -207,8 +211,6 @@ function getStatictics(res, results, sway, dateConfig) {
   } else{
     mutil.renderError(res, {code:500, message:'参数错误'});
   }
-  
-
 }
 
 
@@ -225,6 +227,7 @@ app.post(config.baseUrl + '/task', function(req, res) {
     mutil.renderError(res, error);
   });
 });
+
 app.put(config.baseUrl + '/task/:id', function(req, res) {
   var u = check_login(res);
   var studio = AV.Object.createWithoutData('Studio', req.body.studio);
@@ -248,6 +251,7 @@ app.delete(config.baseUrl + '/task/:id', function(req, res) {
   var obj = AV.Object.createWithoutData('Task', req.params.id);
   deleteObj(obj, res);
 });
+
 app.get(config.baseUrl + '/task/list/:pn', function(req, res) {
   var u = check_login(res);
   var pageNumber = parseInt(req.params.pn);
