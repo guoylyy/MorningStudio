@@ -31,9 +31,9 @@ angular.module('labcloud')
         });
         return deferred.promise;
       },
-      statictics: function(type,sway){
+      statictics: function(type,sway,date){
         var deferred = $q.defer();
-        $http.get(baseUrl + '/statictics',{params:{type:type,sway:sway}}).then(function(res){
+        $http.get(baseUrl + '/statictics',{params:{type:type,sway:sway,date:date}}).then(function(res){
           var data = res.data.data.values;
           var keys = Object.keys(data);
           var flist = [];

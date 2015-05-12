@@ -9,7 +9,8 @@
  */
 angular.module('labcloud')
   .controller('MainController',
-    function($scope, dialogs, taskStatus, businessTypes, studios, recorders, taskService, informService, tasks) {
+    function ($scope, dialogs, taskStatus, businessTypes, 
+      studios, recorders, taskService, informService, tasks, $location, $anchorScroll ) {
       $scope.awesomeThings = [
         'HTML5 Boilerplate',
         'AngularJS',
@@ -18,10 +19,32 @@ angular.module('labcloud')
       $scope.swayFilters = [{name:'录音师',value:'recorder'},{name:'录音棚',value:'studio'}
                         ,{name:'消费类型',value:'businessType'}];
       $scope.taskStatusFilters = [{name:'全部',value:0},{name:'已完成',value:2},{name:'未完成',value:1}];
+      $scope.monthList = [1,2,3,4,5,6,7,8,9,10,11,12];
       $scope.selected = {
         sway : $scope.swayFilters[0],
-        taskStatus: $scope.taskStatusFilters[0]
+        taskStatus: $scope.taskStatusFilters[0],
+        year : (new Date()).getFullYear(),
+        month : $scope.monthList[1]
       };
+      $scope.yearList = getYearList();
+      setDefaultYearMonth();
+
+      function getYearList(){
+        var year = (new Date()).getFullYear();
+        var year_init = 2014;
+        var list = [];
+        for (var i = year_init; i <=year; i++) {
+          list.push(i);
+        }
+        return list;
+      };
+
+      function setDefaultYearMonth(){
+        var now = new Date();
+        $scope.selected.year = now.getFullYear();
+        $scope.selected.month = now.getMonth() + 1;
+      }
+      
       $scope.taskMap = tasks;
 
       $scope.changeTaskStatus = function(){
@@ -34,6 +57,8 @@ angular.module('labcloud')
         taskService.listByPage(pageNumber,$scope.selected.taskStatus.value).then(function(rc) {
           $scope.taskMap = rc;
         });
+        $location.hash('pageHeader');
+        $anchorScroll();
       };
 
       $scope.pageChange = function() {
@@ -101,7 +126,7 @@ angular.module('labcloud')
       };
 
       $scope.changeStatictics = function(type){
-        taskService.statictics(type,$scope.selected.sway.value).then(function(chartData){
+        taskService.statictics(type,$scope.selected.sway.value,concrteDate()).then(function(chartData){
           $scope.chartData = chartData.values;
           var sum = 0;
           for (var i = 0; i < chartData.values.length; i++) {
@@ -109,13 +134,22 @@ angular.module('labcloud')
           };
           if(sum == 0){
             chartData.values = [];
-            informService.signleConfirmInform('今天还没有任何统计数据','请录入数据过后再来查看!','warning',
+            informService.signleConfirmInform('选择的时间段没有任何统计数据','请录入数据过后再来查看!','warning',
               function(){});
           }
           $scope.sum = sum;
           $scope.chartConfig.series[0].data = chartData.values;
           $scope.dateConfig = chartData.dateConfig;
         });
+      };
+
+      function concrteDate(){
+        var dateStr = $scope.selected.year + '-';
+        if($scope.selected.month < 10){
+          dateStr += '0';
+        }
+        dateStr += $scope.selected.month + '-01';
+        return dateStr;
       };
 
       $scope.chartConfig = {

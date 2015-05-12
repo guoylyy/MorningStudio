@@ -19,7 +19,7 @@ var mtask = require('cloud/mtask.js');
 var mconfig = require('cloud/mconfig.js');
 var config = require('cloud/config.js');
 
-var pageSize = 18;
+var pageSize = 16;
 // App 全局配置
 if (__production) {
   app.set('views', 'cloud/views');
@@ -113,6 +113,7 @@ app.post(config.baseUrl + '/account/login', function(req, res) {
   });
 });
 
+//获取字典表接口
 app.get(config.baseUrl + '/dict/:key', function(req, res) {
   var key = req.params.key
   var dictData = mconfig.convertDictToList(key);
@@ -125,15 +126,18 @@ app.get(config.baseUrl + '/dict/:key', function(req, res) {
   mutil.renderData(res, mconfig.convertDictToList(key));
 });
 
+//统计接口
 app.get(config.baseUrl + '/task/statictics', function(req, res) {
   var u = check_login(res);
   var query = new AV.Query('Task');
   var sway = req.query.sway;
-
+  var s_date = new moment(req.query.date);
+  var e_date = new moment(req.query.date);
   var dateConfig = {
-    start: getTime(new moment(), 'begin', req.query.type).toDate(),
-    end : getTime(new moment(), 'end', req.query.type).toDate()
+    start: getTime(s_date, 'begin', req.query.type).toDate(),
+    end : getTime(e_date, 'end', req.query.type).toDate()
   };
+  //console.log(dateConfig);
 
   if(dateConfig.start == null || dateConfig.end == null){
     mutil.renderError(res, {code:500, message:'参数错误!'});
@@ -158,8 +162,8 @@ function getTime(m, type, scale) {
   }
   if(scale == 'month' && type == 'end'){
     m = m.endOf('day');
-    //console.log(m.toDate());
   }
+  //console.log(m);
   return m;
 };
 

@@ -14,7 +14,7 @@
                                 <span class="name">录音任务管理</span>
                             </tab-heading>
 
-                            <div class="tableTitle">共 {{taskMap.totalNum}} 个任务</div>
+                            <div class="tableTitle">共 {{taskMap.totalNum}} 个任务&nbsp;&nbsp;&nbsp;当前第 {{taskMap.currentPage}} 页&nbsp;&nbsp;共 {{taskMap.totalPageNum}} 页</div>
                             <div class="tableContainer">
                                 <table class="table filterTable">
                                     <thead>
@@ -98,11 +98,11 @@
                         </table>
                     </div>
                     <div class="paginationContainer">
-                        <pagination direction-links="false" total-items="taskMap.totalNum" ng-model="taskMap.currentPage" ng-change="pageChange()" items-per-page="{{pageSize}}"></pagination>
+                        <pagination direction-links="false" total-items="taskMap.totalNum" ng-model="taskMap.currentPage" ng-change="pageChange()" items-per-page="16"></pagination>
                     </div>
 
                     <div class="pagerContainer2">
-                        <pager total-items="taskMap.totalNum" items-per-page="{{pageSize}}" ng-model="taskMap.currentPage" ng-change="pageChange()" previous-text="<" next-text=">"></pager>
+                        <pager total-items="taskMap.totalNum" items-per-page="16" ng-model="taskMap.currentPage" ng-change="pageChange()" previous-text="<" next-text=">"></pager>
                     </div>
                 </tab>
                 <tab disabled="true">
@@ -110,7 +110,7 @@
                         <span class="name">统计</span>
                     </tab-heading>
                 </tab>
-                <tab class="sub">
+                <!-- <tab class="sub">
                     <tab-heading ng-click="resetStatictics('day')">
                         <span class="name">今日实时金额统计</span>
                     </tab-heading>
@@ -182,10 +182,10 @@
                     <div class="pagerContainer2">
                         <pager total-items="totalCount" ng-model="currentPage.currentPage" items-per-page="8" ng-change="pageChanged()" previous-text="<" next-text=">"></pager>
                     </div>
-                </tab>
+                </tab> -->
                 <tab class="sub">
                     <tab-heading ng-click="resetStatictics('month')">
-                        <span class="name">月度金额统计</span>
+                        <span class="name">月度任务统计</span>
                     </tab-heading>
                     <div class="tableTitle">
                         统计时段: {{dateConfig.start | date:'yyyy-MM-dd'}} ~ {{dateConfig.end | date:'yyyy-MM-dd'}}
@@ -199,8 +199,18 @@
                                     <th style="width: 150px;">
                                         <select class="form-control" ng-options="sway.name for sway in swayFilters track by sway.value" ng-model="selected.sway" ng-change="changeStatictics('month')"></select>
                                     </th>
-                                    <th style="width: 35px; color:#fff; padding-left:10px;">统计</th>
-                                    <th style="width: 250px;"></th>
+                                    <th style="width: 55px; color:#fff; padding-left:10px;">统计</th>
+
+                                    <th style="width: 90px;">
+                                        <select style="width:70px;"  class="form-control" ng-options="y for y in yearList track by y" ng-model="selected.year" ng-change="changeStatictics('month')">
+                                        </select>
+                                    </th>
+                                    <th style="width: 25px;color:#fff;">年</th>
+                                    <th style="width: 55px;">
+                                        <select style="width:40px;"  class="form-control" ng-options="m for m in monthList track by m" ng-model="selected.month" ng-change="changeStatictics('month')">
+                                        </select>
+                                    </th>
+                                    <th style="width: 25px;color:#fff;">月</th>
                                     <th>
                                         <div class="btn-group-head"></div>
                                     </th>
