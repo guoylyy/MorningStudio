@@ -12,12 +12,13 @@ angular.module('labcloud')
       templateUrl: '/app/templates/lab-header.html',
       restrict: 'E',
       controller: function ($scope, $rootScope, $location, generalService,loginService) {
-        if(!generalService.getLoginUser()){
+        $rootScope.loginUser = generalService.getLoginUser();
+        if(!($rootScope.loginUser)){
           loginService.isLogin().then(function(u){
             if(u.code == 200){
               generalService.persistentUser(u.data);
             }else{
-              generalService.clearStorage();
+              $scope.logout();
             }
           })
         }
