@@ -17,7 +17,7 @@ angular.module('labcloud')
             if(u.code == 200){
               generalService.persistentUser(u.data);
             }else{
-              $location.path('/login');
+              generalService.clearStorage();
             }
           })
         }

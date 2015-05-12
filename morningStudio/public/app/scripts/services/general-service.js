@@ -18,7 +18,7 @@ angular.module('labcloud')
     this.clearStorage = function(){
       delete $localStorage.loginUser;
       delete $rootScope.loginUser;
-      $location.path('/');
+      $location.path('/login');
     }
 
     this.getLoginUser = function(){
