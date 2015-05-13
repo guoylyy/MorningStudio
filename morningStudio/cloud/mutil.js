@@ -27,6 +27,7 @@ function renderError(res, error) {
   };
   res.status(error.code).json(error);
 }
+
 function renderSuccess(res){
   return renderResult(res,'success', 200);
 }
@@ -52,6 +53,9 @@ function renderResult(res, result, code) {
 function renderData(res, data) {
   res.status(200).json({data: data, code:200});
 }
+function renderErrorData(res, data) {
+  res.status(200).json(data);
+}
 function renderDataWithCode(res, data, code) {
   res.status(code).json({data: data, code:code});
 }
@@ -60,6 +64,7 @@ function wrapperStrToDate(dateStr){
 }
 
 exports.doErr=doErr;
+exports.renderErrorData=renderErrorData;
 exports.renderDataWithCode = renderDataWithCode;
 exports.renderNotFound=renderNotFound;
 exports.renderSuccess=renderSuccess;

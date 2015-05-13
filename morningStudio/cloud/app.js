@@ -86,7 +86,7 @@ app.get(config.baseUrl + '/account/isLogin', function(req, res) {
   if (u) {
     mutil.renderData(res, u);
   } else {
-    mutil.renderError(res, {
+    mutil.renderErrorData(res, {
       code: 500,
       message: '请重新登录!'
     });
