@@ -228,17 +228,21 @@
                                         <th style="width: 106px;">{{selected.sway.name}}</th>
                                         <th style="width: 142px;">金额</th>
 
+                                        <th style="width: 100px;"> 乘 <input type="number" ng-model="coefficient" style="width:70px;" /></th>
                                         <th style="width: 20px;"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="mini-tr"  ng-repeat="d in chartData">
                                         <td style="width: 25px; border:none;"></td>
-                                        <td style="width: 70px;">
+                                        <td style="width: 90px;">
                                             <span class="date">{{d[0]}}</span>
                                         </td>
                                         <td style="width: 133px;">
-                                            <span class="name">{{d[1]}}</span>
+                                            <span class="name">{{d[1] | number:1}}</span>
+                                        </td>
+                                        <td style="width: 133px;">
+                                            <span class="name">{{d[1] * coefficient | number:1}}</span>
                                         </td>
 
                                         <td style="width: 20px; border:none;"></td>
@@ -249,7 +253,10 @@
                                             <span class="date"><strong>合计</strong></span>
                                         </td>
                                         <td style="width: 133px;">
-                                        <span class="name"><strong>{{sum}} 元</strong></span>
+                                        <span class="name"><strong>{{sum | number:1}} 元</strong></span>
+                                        </td>
+                                        <td style="width: 133px;">
+                                        <span class="name"><strong>{{sum * coefficient | number:1}} 元</strong></span>
                                         </td>
 
                                         <td style="width: 20px; border:none;"></td>

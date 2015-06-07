@@ -177,6 +177,9 @@ function getStatictics(res, results, sway, dateConfig) {
       };
       for (var i = 0; i < results.length; i++) {
         var r = results[i].get('recorder');
+        if(r.get('name') == undefined){
+          continue;
+        }
         var cost = results[i].get('cost');
         if (r.get('name')) {
           map[r.get('name')] = map[r.get('name')] + cost;
@@ -192,6 +195,9 @@ function getStatictics(res, results, sway, dateConfig) {
       };
       for (var i = 0; i < results.length; i++) {
         var r = results[i].get('studio');
+        if(r.get('name') == undefined){//todo
+          continue;
+        }
         var cost = results[i].get('cost');
         if (r.get('name')) {
           map[r.get('name')] = map[r.get('name')] + cost;
@@ -350,6 +356,7 @@ app.put(config.baseUrl + '/studio/:id', function(req, res) {
     }
   });
 });
+// delete 的话最好设置成 false
 app.delete(config.baseUrl + '/studio/:id', function(req, res) {
   var obj = AV.Object.createWithoutData('Studio', req.params.id);
   deleteObj(obj, res);
@@ -382,6 +389,7 @@ app.put(config.baseUrl + '/recorder/:id', function(req, res) {
     }
   });
 });
+//设置成false 不要直接删除
 app.delete(config.baseUrl + '/recorder/:id', function(req, res) {
   var obj = AV.Object.createWithoutData('Recorder', req.params.id);
   deleteObj(obj, res);

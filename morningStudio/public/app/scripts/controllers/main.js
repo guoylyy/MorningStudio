@@ -16,6 +16,8 @@ angular.module('labcloud')
         'AngularJS',
         'Karma'
       ];
+      $scope.coefficient = 1;//乘以的系数
+
       $scope.swayFilters = [{name:'录音师',value:'recorder'},{name:'录音棚',value:'studio'}
                         ,{name:'消费类型',value:'businessType'}];
       $scope.taskStatusFilters = [{name:'全部',value:0},{name:'已完成',value:2},{name:'未完成',value:1}];
